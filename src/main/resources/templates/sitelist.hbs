@@ -1,29 +1,24 @@
 {{#partial "navbar"}}
     <li class="nav-item fs-5"><a class="nav-link" href="/">Home</a></li>
-    <li class="nav-item fs-5"><a class="nav-link" href="/heroes/new">Register Hero</a></li>
-    <li class="nav-item fs-5"><a class="nav-link" href="/squads/new">Create Squad</a></li>
-    <li class="nav-item fs-5"><a class="nav-link" href="/squads">List of Squads</a></li>
-    <li class="nav-item fs-5 active"><a class="nav-link" href="/heroes">List of Heroes</a></li>
+    <li class="nav-item fs-5"><a class="nav-link" href="/engineers/new">Register Engineer</a></li>
+    <li class="nav-item fs-5"><a class="nav-link" href="/sites/new">Create Site</a></li>
+    <li class="nav-item fs-5 active"><a class="nav-link" href="/sites">List of Sites</a></li>
+    <li class="nav-item fs-5"><a class="nav-link" href="/engineer">List of Engineers</a></li>
 {{/partial}}
 
 {{#partial "content"}}
     <div class="text-center m-5 fs-2 bg-primary">
-        List of Squads
+        List of Sites
     </div>
     <div class="text-center">
-        <h3 class="text-center"><u>{{squad.squadName}}</u></h3>
-        <p><b>Cause:</b>  {{squad.squadCause}}</p>
+        <h3 class="text-center"><u>{{site.sitename}}</u></h3>
         <ul>
-            {{#each squad.members}}
+            {{#each site.members}}
                 <li>{{name}}</li>
             {{/each}}
         </ul>
-        {{#if squad.squadFull}}
-            <p class="text-center">Squad Full</p>
-        {{else}}
-            <a class="btn btn-outline-primary" href="/squads/{{squad.squadID}}/update">Add Members</a>
-        {{/if}}
-        <a class="btn btn-outline-danger" href="/squads/{{squad.squadID}}/remove">Remove Members</a>
+            <a class="btn btn-outline-primary" href="/sites/{{site.siteID}}/update">Add Members</a>
+        <a class="btn btn-outline-danger" href="/sites/{{site.siteID}}/remove">Remove Members</a>
     </div>
 {{/partial}}
 
