@@ -3,6 +3,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.*;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class EngineerTest {
@@ -67,6 +68,25 @@ public class EngineerTest {
         secondEngineer.save();
         assertEquals(Engineer.find(secondEngineer.getId()), secondEngineer);
     }
-
+    @Test
+    public void save_savesEngineerIdIntoDB_true() {
+        Engineer testEngineer = new Engineer("Harry", "harry@hogwards.com","Tokyo", date);
+        testEngineer.save();
+        Site testSite = new Site("Osaka", testEngineer.getId());
+        testSite.save();
+        Site savedSite = Site.find(testSite.getId());
+        assertEquals(savedSite.getEngineerId(), testEngineer.getId());
+    }
+    @Test
+    public void getSites_retrievesAllSitesFromDatabase_SitesList() {
+        Engineer testEngineer = new Engineer("Hermoine", "Hermoine@hogwards.com","Tokyo", date);
+        testEngineer.save();
+        Site firstSite = new Site("Osaka", testEngineer.getId());
+        firstSite.save();
+        Site secondSite = new Site("Kyoto", testEngineer.getId());
+        secondSite.save();
+        Site[] Sites = new Site[] { firstSite, secondSite };
+        assertTrue(testEngineer.getSites().containsAll(Arrays.asList(Sites)));
+    }
 }
 

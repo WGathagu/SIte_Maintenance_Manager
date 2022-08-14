@@ -76,5 +76,13 @@ public class Engineer {
             return Engineer;
         }
     }
+    public List<Site> getSites() {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM sites where engineerId=:id";
+            return con.createQuery(sql)
+                    .addParameter("id", this.id)
+                    .executeAndFetch(Site.class);
+        }
+    }
 
 }

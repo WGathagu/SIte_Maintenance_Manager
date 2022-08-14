@@ -39,19 +39,28 @@ public class SiteTest {
     }
     @Test
     public void save_assignsIdToSite() {
-        Site testSite = new Site("Bubbles", 1);
+        Site testSite = new Site("Kyoto", 1);
         testSite.save();
         Site savedSite = Site.all().get(0);
         assertEquals(savedSite.getId(), testSite.getId());
     }
+
     @Test
     public void all_returnsAllInstancesOfSite_true() {
-        Site firstSite = new Site("Bubbles", 1);
+        Site firstSite = new Site("Kyoto", 1);
         firstSite.save();
-        Site secondSite = new Site("Spud", 1);
+        Site secondSite = new Site("Tokyo", 1);
         secondSite.save();
         assertEquals(true, Site.all().get(0).equals(firstSite));
         assertEquals(true, Site.all().get(1).equals(secondSite));
+    }
+    @Test
+    public void find_returnsSiteWithSameId_secondSite() {
+        Site firstSite = new Site("Bubbles", 1);
+        firstSite.save();
+        Site secondSite = new Site("Spud", 3);
+        secondSite.save();
+        assertEquals(Site.find(secondSite.getId()), secondSite);
     }
 
 }

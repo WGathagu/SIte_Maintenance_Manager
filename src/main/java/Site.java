@@ -48,5 +48,15 @@ public class Site {
             return con.createQuery(sql).executeAndFetch(Site.class);
         }
     }
+    public static Site find(int id) {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM sites where id=:id";
+            Site Site = con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Site.class);
+            return Site;
+        }
+    }
+
 
 }
