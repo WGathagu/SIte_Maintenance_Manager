@@ -1,5 +1,5 @@
-# Site_Maintenance_Manager
-#### Site_Maintenance_Manager Independent Project, 15/08/2022.
+# Site Maintenance Manager
+#### Site Maintenance Manager Independent Project, 15/08/2022.
 #### By **Wangari Gathagu**
 ## Description
 Welcome to my Site Maintenance Manager Project.
