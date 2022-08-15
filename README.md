@@ -16,10 +16,10 @@ The functionalities include;
 ## Setup/Installation Requirements
 * Clone the project and open it using IntelliJ IDEA
 * Below are the database details
-In PSQL:
-CREATE DATABASE site_maintenance;
-CREATE TABLE engineer (id serial PRIMARY KEY, name varchar, email varchar, site_name varchar, hire_date timestamp);
-CREATE TABLE sites (id serial PRIMARY KEY, name varchar, engineerID int);
+* In PSQL:
+* CREATE DATABASE site_maintenance;
+* CREATE TABLE engineer (id serial PRIMARY KEY, name varchar, email varchar, site_name varchar, hire_date timestamp);
+* CREATE TABLE sites (id serial PRIMARY KEY, name varchar, engineerID int);
 ## Known Bugs
 No Known Bugs
 ## Technologies Used
